@@ -1,0 +1,31 @@
+defaultVpc:
+  delete: false
+  excludeAccounts: []
+transitGateways:
+  - name: Network-Main
+    account: Management
+    region: us-east-1
+    shareTargets:
+      organizationalUnits: []
+    asn: 65000
+    dnsSupport: enable
+    vpnEcmpSupport: enable
+    defaultRouteTableAssociation: disable
+    defaultRouteTablePropagation: disable
+    autoAcceptSharingAttachments: enable
+    routeTables: []
+    tags: []
+endpointPolicies: []
+directConnectGateways:
+  - name: Accelerator-DXGW
+    account: Management
+    asn: 64512
+    gatewayName: Accelerator-DXGW
+    virtualInterfaces: []
+    transitGatewayAssociations:
+      - name: Network-Main
+        account: Management
+        allowedPrefixes:
+          - 10.0.0.0/8
+          - 192.168.0.0/24
+vpcs: []
